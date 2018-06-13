@@ -23,6 +23,13 @@ class Users {
 
         return namesArray
     }
+    isUniqueUser (room, name) {
+		let roomUsersList = this.getUserList(room)
+		let dublicated = roomUsersList.filter((user) => user === name)
+
+		return dublicated.length ? false : true
+    }
+   
 }
 
 module.exports = {

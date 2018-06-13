@@ -171,6 +171,16 @@
   .message__title span {
     color: #999;
   }
+
+  .message__body a {
+    border: .5px solid #265f82;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    background: #265f82;
+    color: white;
+    text-decoration :none
+  }
   
   @media (max-width: 600px) {
     * {
