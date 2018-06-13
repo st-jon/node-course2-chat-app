@@ -33,7 +33,6 @@ socket.on('disconnect', function () {
 })
 
 socket.on('updateUserList', function (users) {
-    console.log(Users)
     let ol = jQuery(`<ol></ol>`)
 
     users.forEach(function (user) {
