@@ -12,7 +12,6 @@ class Rooms {
     }
     removeRoom(room, users) {
         let removedRoom = this.rooms.filter(r => r === room)[0]
-        console.log(removedRoom)
         if (removedRoom) {
             if (users) {
                 return
@@ -20,7 +19,6 @@ class Rooms {
                 this.rooms = this.rooms.filter((room) => room !== removedRoom) 
             }
         }
-        console.log(this.rooms)
     }
     getRoomList() {
         return this.rooms
