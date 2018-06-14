@@ -115,6 +115,7 @@
   
   .chat__main {
     display: flex;
+    background: rgba(39, 107, 130, 0.192);
     flex-direction: column;
     height: 100vh;
     width: 100%;
@@ -162,14 +163,14 @@
     display: flex;
     margin-bottom: 5px;
   }
-  
+
   .message__title h4 {
     font-weight: 600;
     margin-right: 10px;
   }
   
   .message__title span {
-    color: #999;
+    color: rgb(88, 88, 88);
   }
 
   .message__body a {
@@ -179,7 +180,23 @@
     margin: 5px;
     background: #265f82;
     color: white;
-    text-decoration :none
+    text-decoration : none;
+  }
+
+  .notification__body {
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .notification__body p {
+    background: #76acce;
+    color: black;
+    padding: 5px 10px 5px 10px;
+    border-radius:5px;
+    font-size: 2vh;
+    font-style: italic;
+    display: inline-block;
   }
   
   @media (max-width: 600px) {

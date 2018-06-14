@@ -40,7 +40,7 @@ io.on('connection', (socket) => {
 
         io.to(params.room).emit('updateUserList', users.getUserList(params.room))
         socket.emit('newMessage', generateMessage('Admin', `welcome to the ${params.room} Chat`))
-        socket.broadcast.to(params.room).emit('newMessage', generateMessage('admin', `${params.name} has join the room`))
+        socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} has join the room`))
     })
     
     socket.on('createMessage', (message, callback) => {

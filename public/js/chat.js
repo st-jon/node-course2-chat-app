@@ -18,12 +18,15 @@ function scrollToBottom () {
 socket.on('connect', function () {
     let params = jQuery.deparam(window.location.search)
 
+    document.title = `${params.room.toUpperCase()} | chat`
+
     socket.emit('join', params, function (err) {
+    
         if(err) {
             alert(err)
             window.location.href = '/'
         } else {
-            console.log('No error')
+            console.log('No error') 
         }
     })
 })
@@ -44,13 +47,18 @@ socket.on('updateUserList', function (users) {
 
 socket.on('newMessage', function (message){
     let formattedTime = moment(message.createdAt).format('H:mm')
-    let template = jQuery('#message-template').html()
+    let template
+    if (message.from === 'Admin') {
+        template = jQuery('#notification-template').html()
+    } else {
+        template = jQuery('#message-template').html()
+    }
     let html = Mustache.render(template, {
         text: message.text,
         from: message.from,
         createdAt: formattedTime
     })
-
+    
     jQuery('#messages').append(html)
     scrollToBottom()
 })
@@ -101,3 +109,4 @@ locationButton.on('click', function (e) {
     })
 
 })
+

@@ -13,7 +13,7 @@
         <h3>People</h3>
         <div id="users"></div>
     </div>
-    
+
     <div class="chat__main">
         <ol id="messages" class="chat__messages"></ol>
         
@@ -48,6 +48,14 @@
                 <p>
                     <a href="{{url}}" target="_blank">My current location</a>
                 </p>
+            </div>
+        </li>
+    </script>
+
+    <script id="notification-template" type="text/template">
+        <li class="notification">
+            <div class="notification__body">
+                <p>{{text}}</p>
             </div>
         </li>
     </script>
