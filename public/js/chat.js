@@ -36,13 +36,26 @@ socket.on('disconnect', function () {
 })
 
 socket.on('updateUserList', function (users) {
-    let ol = jQuery(`<ol></ol>`)
+    let ol = jQuery(`<ul></ul>`)
 
     users.forEach(function (user) {
-        ol.append(jQuery('<li></li>').text(user))
+        ol.append(jQuery(`<li id="${user}"></li>`).text(user))
     })
     jQuery('#users').html(ol)
   
+})
+
+socket.on('usertyping', function (message) { 
+    let inputText = document.getElementById('type-message')
+    let params = jQuery.deparam(window.location.search)
+
+    inputText.addEventListener('keyup', function (e) {
+       if(e.target.value !== '') {
+            jQuery(`#${message.name}`).text(message.text)
+       } else if (e.target.value === '') {
+            jQuery(`#${message.name}`).text(message.name)
+       }
+    })
 })
 
 socket.on('newMessage', function (message){
@@ -109,4 +122,14 @@ locationButton.on('click', function (e) {
     })
 
 })
+
+let inputElement = document.getElementById('type-message')
+
+inputElement.addEventListener('input', function (e) {
+    if (e.target.value !== "") {
+        let params = jQuery.deparam(window.location.search)
+        socket.emit('userType', params)
+    }
+})
+
 

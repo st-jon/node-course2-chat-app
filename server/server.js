@@ -59,6 +59,15 @@ io.on('connection', (socket) => {
         }
     })
 
+    socket.on('userType', (message) => {
+        let user = users.getUser(socket.id)
+
+        io.in(user.room).emit('usertyping', {
+            text: `${user.name} is typing ...`,
+            name: user.name,
+        })  
+    })
+
     socket.on('disconnect', () => {
         console.log('User disconnected')
         let user = users.removeUser(socket.id)
