@@ -37,9 +37,15 @@ socket.on('disconnect', function () {
 
 socket.on('updateUserList', function (users) {
     let ol = jQuery(`<ul></ul>`)
+    let params = jQuery.deparam(window.location.search)
 
     users.forEach(function (user) {
-        ol.append(jQuery(`<li id="${user}"></li>`).text(user))
+        if (user === params.name) {
+            ol.append(jQuery(`<li id="${user}" style="font-weight: 500; font-style: oblique"></li>`).text(user))
+        } else {
+            ol.append(jQuery(`<li id="${user}"></li>`).text(user))
+        }
+       
     })
     jQuery('#users').html(ol)
   

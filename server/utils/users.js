@@ -25,7 +25,7 @@ class Users {
     }
     isUniqueUser (room, name) {
 		let roomUsersList = this.getUserList(room)
-		let dublicated = roomUsersList.filter((user) => user === name)
+		let dublicated = roomUsersList.filter((user) => user.toUpperCase() === name.toUpperCase())
 
 		return dublicated.length ? false : true
     }

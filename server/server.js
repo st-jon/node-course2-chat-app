@@ -25,10 +25,10 @@ io.on('connection', (socket) => {
         
 
     socket.on('join', (params, callback) => {
-        if(!isRealString(params.name) || !isRealString(params.room)) {
+        if (!isRealString(params.name) || !isRealString(params.room)) {
             return callback('Name and Room name are Required')
         } 
-        if( !users.isUniqueUser(params.room, params.name)) {
+        if (!users.isUniqueUser(params.room, params.name)) {
             return callback(`User's name already exist`)
         }
 
