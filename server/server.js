@@ -60,10 +60,17 @@ io.on('connection', (socket) => {
     })
 
     socket.on('userType', (message) => {
-        let user = users.getUser(socket.id)
+      
+        io.in(message.room).emit('userTyping', {
+            text: `${message.name} is typing ...`,
+            name: message.name,
+        })  
+    })
 
-        io.in(user.room).emit('usertyping', {
-            text: `${user.name} is typing ...`,
+    socket.on('userDoneType', () => {
+        let user = users.getUser(socket.id)
+        io.in(user.room).emit('userDoneTyping', {
+            text: `${user.name}`,
             name: user.name,
         })  
     })

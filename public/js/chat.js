@@ -45,17 +45,26 @@ socket.on('updateUserList', function (users) {
   
 })
 
-socket.on('usertyping', function (message) { 
-    let inputText = document.getElementById('type-message')
+socket.on('userTyping', function (message) {
+
     let params = jQuery.deparam(window.location.search)
 
-    inputText.addEventListener('keyup', function (e) {
-       if(e.target.value !== '') {
-            jQuery(`#${message.name}`).text(message.text)
-       } else if (e.target.value === '') {
-            jQuery(`#${message.name}`).text(message.name)
-       }
-    })
+    if (params.name === message.name) {
+        return jQuery(`#${message.name}`).text(message.name)
+    } else {
+        return jQuery(`#${message.name}`).text(message.text)
+    }
+})
+
+socket.on('userDoneTyping', function (message) {
+  
+    let params = jQuery.deparam(window.location.search)
+
+    if (params.name === message.name) {
+        return jQuery(`#${message.name}`).text(message.name)
+    } else {
+        return jQuery(`#${message.name}`).text(message.text)
+    }
 })
 
 socket.on('newMessage', function (message){
@@ -98,6 +107,7 @@ jQuery('#message-form').on('submit', function (e) {
         text: messageTextbox.val()
     }, function () {
         messageTextbox.val('')
+        socket.emit('userDoneType')
     })
 })
 
@@ -126,10 +136,11 @@ locationButton.on('click', function (e) {
 let inputElement = document.getElementById('type-message')
 
 inputElement.addEventListener('input', function (e) {
-    if (e.target.value !== "") {
-        let params = jQuery.deparam(window.location.search)
-        socket.emit('userType', params)
-    }
+    let params = jQuery.deparam(window.location.search)
+
+        if (e.target.value !== "") {
+            socket.emit('userType', params)
+        } 
 })
 
 
