@@ -11,16 +11,22 @@
   "engines": {
     "node": "10.3.0"
   },
-  "author": "",
+  "author": "Christophe Johanny <c.johanny@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^2.0.1",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
     "moment": "^2.22.2",
-    "socket.io": "^2.1.1"
+    "mongoose": "^5.1.5",
+    "socket.io": "^2.1.1",
+    "validator": "^10.3.0"
   },
   "devDependencies": {
     "expect": "^23.1.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.17.5"
-  }
+  },
+  "repository": "https://github.com/st-jon/node-course2-chat-app.git"
 }

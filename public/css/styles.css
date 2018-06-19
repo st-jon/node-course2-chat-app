@@ -115,7 +115,7 @@
   
   .chat__main {
     display: flex;
-    background: rgba(51, 65, 70, 0.589);
+    background: #e6eaee;
     flex-direction: column;
     height: 100vh;
     width: 100%;
