@@ -20,6 +20,8 @@ socket.on('connect', function () {
 
     document.title = `${params.room.toUpperCase()} | chat`
 
+    jQuery('.chat__sidebar').prepend(`<h3>${params.room} Room</h3>`)
+
     socket.emit('join', params, function (err) {
     
         if(err) {

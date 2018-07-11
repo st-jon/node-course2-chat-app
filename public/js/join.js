@@ -2,7 +2,6 @@ let socket = io();
 let select = jQuery('#rooms-select');
 
 socket.on('UpdateRoomList', (rooms) => {
-    console.log(rooms)
     if (!rooms.length > 0) {
         select.append( `<option value="" selected disabled hidden> -- No Activ Room -- </option>` )
     }
@@ -14,3 +13,4 @@ socket.on('UpdateRoomList', (rooms) => {
 $('#rooms-select').click((e) => {
     jQuery('#room-name').val(e.target.value)
 })
+

@@ -16,7 +16,42 @@
     text-align: center;
     font-size: 1.5rem;
   }
+
+  h4 {
+    font-weight: 600;
+    text-align: center;
+    font-size: 1rem;
+  }
+  h5 {
+    font-weight: 400;
+    text-align: center;
+    font-size: .8rem;
+    color: green;
+  }
+
+  h6 {
+    font-weight: 400;
+    text-align: center;
+    font-size: .8rem;
+    color: red;
+  }
   
+  #button {
+    border: none;
+    background: rgb(22, 59, 71) 0%;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    transition: background .3s ease;
+  }
+
+  #button:hover {
+    border: none;
+    background: rgb(18, 33, 51) 100%;
+    color: white;
+    padding: 10px;
+  }
+
   button {
     border: none;
     background: rgb(22, 59, 71) 0%;
